@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Muti Spring Boot Merhaba</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <style>
+        .user-row {
+            margin-bottom: 14px;
+        }
+
+        .user-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .dropdown-user {
+            margin: 13px 0;
+            padding: 5px;
+            height: 100%;
+        }
+
+        .dropdown-user:hover {
+            cursor: pointer;
+        }
+
+        .table-user-information > tbody > tr {
+            border-top: 1px solid rgb(221, 221, 221);
+        }
+
+        .table-user-information > tbody > tr:first-child {
+            border-top: 0;
+        }
+
+
+        .table-user-information > tbody > tr > td {
+            border-top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a th:href="@{/secure}" class="btn btn-default"><= Back</a>
+                <h3 class="panel-title">User information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+                        <img class="img-circle"
+                             src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+                             alt="User Pic">
+                    </div>
+                    <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                        <img class="img-circle"
+                             src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+                             alt="User Pic">
+                    </div>
+                    <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                        <strong th:utext="${user.username}"></strong><br>
+                        <table class="table table-user-information">
+                            <tbody>
+                            <tr>
+                                <td>First Name:</td>
+                                <td th:utext="${user.firstName}"></td>
+                            </tr>
+                            <tr>
+                                <td>Last Name:</td>
+                                <td th:utext="${user.lastName}"></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td th:utext="${user.email}"></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td th:utext="${user.password}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-sm btn-primary" type="button"
+                        data-toggle="tooltip"
+                        data-original-title="Send message to user"><i class="glyphicon glyphicon-envelope"></i></button>
+                <span class="pull-right">
+                                    <button class="btn btn-sm btn-warning" type="button"
+                                            data-toggle="tooltip"
+                                            data-original-title="Edit this user"><i class="glyphicon glyphicon-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger" type="button"
+                                            data-toggle="tooltip"
+                                            data-original-title="Remove this user"><i class="glyphicon glyphicon-remove"></i></button>
+                                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</body>
+</html>

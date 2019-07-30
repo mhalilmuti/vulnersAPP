@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Adı</th>
+                <th scope="col">Soyadı</th>
+                <th scope="col">Eposta</th>
+                <th scope="col">Kullanıcı Adı</th>
+                <th scope="col">Parola</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user,stat : ${users}">
+                <th th:text="${stat.count}">1</th>
+                <td th:text="${user.firstName}">x</td>
+                <td th:text="${user.lastName}">X</td>
+                <td th:text="${user.email}">x</td>
+                <td th:text="${user.username}">x</td>
+                <td th:text="${user.password}">x</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</body>
+</html>

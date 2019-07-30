@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>VulnersAPP Spring Örnek Uygulama</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2 th:if="${role.role == 'ADMIN'}">Admin Sayfasına Hoşgeldiniz.</h2>
+    <h2 th:unless="${role.role == 'ADMIN'}">User Sayfasına Hoşgeldiniz.</h2>
+    <h3> <span th:utext="${user.firstName}"></span> <span th:utext="${user.lastName}"></span></h3>
+
+
+    <a th:href="@{/profile(id=${user.id})}" class="btn btn-default"> Profil</a>
+    <a th:if="${role.role == 'ADMIN'}" th:href="@{/userlist}" class="btn btn-default"> Kullanıcı Listesi</a>
+    <a href="/logout" class="btn btn-danger">Çıkış Yapın</a>
+</div>
+</body>
+</html>
